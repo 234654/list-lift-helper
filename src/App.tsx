@@ -16,7 +16,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/list-lift-helper">
         <Routes>
           <Route path="/" element={<Index />} />
           {/* ДОБАВЛЯЙТЕ ВСЕ КАСТОМНЫЕ МАРШРУТЫ ВЫШЕ МАРШРУТА "*" */}
