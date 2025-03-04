@@ -1,4 +1,3 @@
-
 # Welcome to your Lovable project
 
 ## Project info
@@ -63,46 +62,7 @@ This project is built with .
 
 ## How can I deploy this project?
 
-### GitHub Pages Deployment
-
-To deploy this project to GitHub Pages:
-
-1. Create a new repository on GitHub.
-2. In your terminal, inside the project folder, run:
-   ```sh
-   git init
-   git remote add origin https://github.com/YOUR_USERNAME/list-lift-helper.git
-   git branch -M main
-   git add .
-   git commit -m "Initial commit"
-   git push -u origin main
-   ```
-
-3. Build the project:
-   ```sh
-   npm install
-   npm run build
-   ```
-
-4. Deploy to GitHub Pages:
-   ```sh
-   git checkout --orphan gh-pages
-   git rm -rf .
-   mv dist/* .
-   git add .
-   git commit -m "Deploy to GitHub Pages"
-   git push -f origin gh-pages
-   git checkout main
-   ```
-
-5. Enable GitHub Pages in repository settings:
-   - Go to Settings → Pages
-   - Select 'gh-pages' as the branch
-   - Your site will be available at: https://YOUR_USERNAME.github.io/list-lift-helper/
-
-### Lovable Deployment
-
-Alternatively, simply open [Lovable](https://lovable.dev/projects/9e40b75e-cd89-4de3-8c55-38b35ac02849) and click on Share -> Publish.
+Simply open [Lovable](https://lovable.dev/projects/9e40b75e-cd89-4de3-8c55-38b35ac02849) and click on Share -> Publish.
 
 ## I want to use a custom domain - is that possible?
 
