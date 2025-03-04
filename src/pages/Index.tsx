@@ -5,19 +5,17 @@ import ProductSearch from '@/components/ProductSearch';
 import ProductList from '@/components/ProductList';
 import { loadList, saveList, ListItem } from '@/lib/productData';
 
-// Главный компонент страницы
 const Index = () => {
-  // Состояние списка покупок
   const [shoppingList, setShoppingList] = useState<ListItem[]>([]);
   const [listUpdated, setListUpdated] = useState(false);
 
-  // Загрузка списка из localStorage при первой загрузке
+  // Load list from localStorage on initial render
   useEffect(() => {
     const savedList = loadList();
     setShoppingList(savedList);
   }, []);
 
-  // Сохранение списка в localStorage при изменении
+  // Save list to localStorage whenever it changes
   useEffect(() => {
     if (listUpdated) {
       saveList(shoppingList);
@@ -25,36 +23,36 @@ const Index = () => {
     }
   }, [shoppingList, listUpdated]);
 
-  // Добавление продукта в список покупок
+  // Add product to shopping list
   const handleAddToList = (product: ListItem) => {
     setShoppingList(prevList => {
-      // Проверка, есть ли уже такой продукт в списке
+      // Check if product already exists in list
       const existingItem = prevList.find(item => item.id === product.id);
       
       if (existingItem) {
-        // Увеличиваем количество, если продукт уже есть
+        // Increment quantity if product already exists
         return prevList.map(item => 
           item.id === product.id 
             ? { ...item, quantity: item.quantity + 1 } 
             : item
         );
       } else {
-        // Добавляем новый продукт в список
+        // Add new product to list
         return [...prevList, product];
       }
     });
     setListUpdated(true);
   };
 
-  // Обновление списка покупок
+  // Update shopping list
   const handleUpdateList = (updatedList: ListItem[]) => {
     setShoppingList(updatedList);
     setListUpdated(true);
   };
 
-  // Обработка обновления цен
+  // Handle when prices are updated
   const handlePricesUpdated = () => {
-    // Перезагрузка списка для отображения обновленных цен
+    // Reload the list to reflect updated prices
     const savedList = loadList();
     setShoppingList(savedList);
     setListUpdated(true);
